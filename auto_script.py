@@ -76,13 +76,8 @@ def turn_yaw(angle, speed, direction, relative = True):
 # Mengubah mode menjadi LAND dan meendaratkan drone
 def land():
     print("Landing")
-    master.mav.command_long_send(
-        master.target_system, master.target_component,
-        mavutil.mavlink.MAV_CMD_NAV_LAND,
-        0,
-        0, 0, 0, 0, 0, 0, 0
-    )
-    
+    master.set_mode('LAND')
+
 set_guided()
 time.sleep(2)
 
