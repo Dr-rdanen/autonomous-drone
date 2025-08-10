@@ -82,17 +82,7 @@ def land():
         0,
         0, 0, 0, 0, 0, 0, 0
     )
-
-# Membaca posisi drone dengan GPS
-def read_position():
-    print("Reading current GPS position...")
-    msg = master.recv_match(type='GLOBAL_POSITION_INT', blocking=True)
-    lat = msg.lat / 1e7
-    lon = msg.lon / 1e7
-    alt = msg.alt / 1000
-    print(f"Latitude: {lat}, Longitude: {lon}, Altitude: {alt}m")
-
-
+    
 set_guided()
 time.sleep(2)
 
@@ -112,9 +102,6 @@ time.sleep(6)
 print("turning right")
 turn_yaw(90, 30, 0)
 time.sleep(5)
-
-# Membaca koordinat drone saat ini
-read_position()
 
 # Bergerak maju 4m dalam waktu 2s 
 print("Moving 4m")
